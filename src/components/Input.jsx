@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { dataCalcContext } from "../App";
 
 function Input({ config, configKey }) {
   const [value, setValue] = useState("");
   const size = config.find((el) => el.key === configKey);
+  const [dataCalc, setDataCalc] = useContext(dataCalcContext);
 
   const changeValue = (e) => {
     setValue(e.target.value);
   };
 
   const numberVerification = (e) => {
-    const val = e.target.value;
+    let val = e.target.value;
     if (val < size.min) {
+      val = size.min;
       setValue(size.min);
     } else if (val > size.max) {
+      val = size.max;
       setValue(size.max);
     }
+    setDataCalc((old) => ({ ...old, [configKey]: +val }));
   };
 
   const onEnterDown = (e) => {

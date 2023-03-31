@@ -1,15 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { dataCalcContext } from "../App";
 
-function Select({ title, options }) {
+function Select({ title, options, type }) {
   const [dataCalc, setDataCalc] = useContext(dataCalcContext);
-  const list = (e) => {
-    setDataCalc([
-      ...dataCalc,
-      options.find((el) => el.name === e.target.value),
-    ]);
+
+  const selection = (e) => {
+    setDataCalc((old) => ({ ...old, [type]: e.target.value }));
   };
-  console.log(dataCalc);
+
   return (
     <div>
       {" "}
@@ -21,9 +19,11 @@ function Select({ title, options }) {
       </label>
       <select
         id="select"
-        onChange={list}
+        onChange={selection}
+        defaultValue={""}
         className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
+        <option value={""} disabled>{`Выберите ${title}`}</option>
         {options.map((option) => {
           return (
             <option key={option.name} value={option.name}>

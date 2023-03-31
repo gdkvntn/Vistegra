@@ -21,6 +21,7 @@
     "name": "Легкая",
     "step": 1.2
   },
+  
   {
     "type": "frame",
     "key": "standard",
@@ -52,7 +53,7 @@
   {
     "type": "fix",
     "key": "metal",
-    "name": "Пластик",
+    "name": "Метал",
     "value": 5
   }
 ]
