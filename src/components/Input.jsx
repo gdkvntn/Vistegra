@@ -5,7 +5,7 @@ function Input({ config, configKey }) {
   const [value, setValue] = useState("");
   const size = config.find((el) => el.key === configKey);
   const [dataCalc, setDataCalc] = useContext(dataCalcContext);
-  console.log(dataCalc);
+ 
   const changeValue = (e) => {
     setValue(e.target.value);
   };

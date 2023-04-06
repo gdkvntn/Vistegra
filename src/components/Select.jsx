@@ -5,7 +5,7 @@ function Select({ title, options, type }) {
   const [dataCalc, setDataCalc] = useContext(dataCalcContext);
 
   const selection = (e) => {
-    console.log(dataCalc);
+    
     setDataCalc((old) => ({ ...old, [type]: e.target.value }));
   };
 

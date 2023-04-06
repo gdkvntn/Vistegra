@@ -23,7 +23,7 @@ function Table({ data }) {
       <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
         Площадь: {area} м2
         <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-          Расчетный размер ячейки:{box}
+          Расчетный размер ячейки: {box}
         </p>
       </caption>
       <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
